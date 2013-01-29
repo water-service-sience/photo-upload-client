@@ -192,9 +192,26 @@ function createAPIClient(){
 			c.send();
 			
 		},
-		getNearPhotos : function(callback) {
+		getPhotosNearBy : function(lat,lon,callback) {
 			
 			
+			var url = client.url + "api/photo/near?lat=" + lat + "&lon=" + lon;
+			var c = Ti.Network.createHTTPClient({
+				onload : function(e) {
+					var ak = this.responseText;
+					Ti.API.info("Success to get self near photos");
+					var d = JSON.parse(ak);
+					callback(d);
+				},
+				onerror : function(e) {
+				    Ti.API.info("Fail to get self near photos." + e);
+				    callback(null);
+				}
+			});
+			c.open("GET", url);
+			
+			c.setRequestHeader(AccessKeyHeader,client.accessKey);
+			c.send();
 		}
 		
 	};

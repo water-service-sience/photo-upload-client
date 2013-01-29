@@ -5,4 +5,6 @@
 	<string name="openWindow">新しいウインドを開く</string>
 	<string name="newWindow">新しいウインド</string>
 	<string name="camera">カメラ</string>
+	<string name="map">地図</string>
+	<string name="setting">設定</string>
 </resources>

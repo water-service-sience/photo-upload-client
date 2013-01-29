@@ -1,15 +1,19 @@
 Logfile initialized
 [INFO] logfile = /Users/takezoux3/Documents/Titanium_Studio_Workspace/PhotoUploader/build.log
-[DEBUG] /Users/takezoux3/Library/Application Support/Titanium/mobilesdk/osx/2.1.4.GA/android/builder.py install PhotoUploader /Users/takezoux3/Downloads/adt-bundle-mac/sdk /Users/takezoux3/Documents/Titanium_Studio_Workspace/PhotoUploader jp.utokyo.wss.photo.upload 1
+[DEBUG] /Users/takezoux3/Library/Application Support/Titanium/mobilesdk/osx/2.1.4.GA/android/builder.py install PhotoUploader /Users/takezoux3/Downloads/adt-bundle-mac/sdk /Users/takezoux3/Documents/Titanium_Studio_Workspace/PhotoUploader jp.utokyo.wss.photo.upload 3
 [INFO] Titanium SDK version: 2.1.4 (11/09/12 12:46 51f2c64)
 [DEBUG] Waiting for device to be ready ...
 [TRACE] adb devices returned 1 devices/emulators
 [DEBUG] Device connected... (waited 0 seconds)
-[DEBUG] waited 0.019051 seconds on emulator to get ready
+[DEBUG] waited 0.019083 seconds on emulator to get ready
 [DEBUG] jp.utokyo.wss.photo.upload installed? False
 [INFO] Copying CommonJS modules...
 [INFO] Copying project resources..
-[TRACE] COPYING MODIFIED FILE: /Users/takezoux3/Documents/Titanium_Studio_Workspace/PhotoUploader/Resources/ui/common/CameraWindow.js => /Users/takezoux3/Documents/Titanium_Studio_Workspace/PhotoUploader/build/android/bin/assets/Resources/ui/common/CameraWindow.js
+[TRACE] COPYING MODIFIED FILE: /Users/takezoux3/Documents/Titanium_Studio_Workspace/PhotoUploader/Resources/ui/common/APIClient.js => /Users/takezoux3/Documents/Titanium_Studio_Workspace/PhotoUploader/build/android/bin/assets/Resources/ui/common/APIClient.js
+[TRACE] COPYING MODIFIED FILE: /Users/takezoux3/Documents/Titanium_Studio_Workspace/PhotoUploader/Resources/ui/common/ApplicationTabGroup.js => /Users/takezoux3/Documents/Titanium_Studio_Workspace/PhotoUploader/build/android/bin/assets/Resources/ui/common/ApplicationTabGroup.js
+[TRACE] COPYING MODIFIED FILE: /Users/takezoux3/Documents/Titanium_Studio_Workspace/PhotoUploader/Resources/ui/common/HomeWindow.js => /Users/takezoux3/Documents/Titanium_Studio_Workspace/PhotoUploader/build/android/bin/assets/Resources/ui/common/HomeWindow.js
+[TRACE] COPYING MODIFIED FILE: /Users/takezoux3/Documents/Titanium_Studio_Workspace/PhotoUploader/Resources/ui/common/MapWindow.js => /Users/takezoux3/Documents/Titanium_Studio_Workspace/PhotoUploader/build/android/bin/assets/Resources/ui/common/MapWindow.js
+[TRACE] COPYING MODIFIED FILE: /Users/takezoux3/Documents/Titanium_Studio_Workspace/PhotoUploader/Resources/ui/common/SettingWindow.js => /Users/takezoux3/Documents/Titanium_Studio_Workspace/PhotoUploader/build/android/bin/assets/Resources/ui/common/SettingWindow.js
 [TRACE] Generating Java Classes
 [DEBUG] Processing Android resource drawables
 [DEBUG] copying app icon: /Users/takezoux3/Documents/Titanium_Studio_Workspace/PhotoUploader/build/android/bin/assets/Resources/appicon.png
@@ -46,8 +50,15 @@ Logfile initialized
 [DEBUG] creating unsigned apk: /Users/takezoux3/Documents/Titanium_Studio_Workspace/PhotoUploader/build/android/bin/app-unsigned.apk
 [DEBUG] from resource zip => assets/Resources/images/KS_nav_ui.png
 [DEBUG] from resource zip => assets/Resources/images/KS_nav_views.png
+[DEBUG] from resource zip => assets/Resources/ui/common/APIClient.js
 [DEBUG] from resource zip => assets/Resources/ui/common/ApplicationTabGroup.js
 [DEBUG] from resource zip => assets/Resources/ui/common/CameraWindow.js
+[DEBUG] from resource zip => assets/Resources/ui/common/CreateUserWindow.js
+[DEBUG] from resource zip => assets/Resources/ui/common/HomeWindow.js
+[DEBUG] from resource zip => assets/Resources/ui/common/LoginWindow.js
+[DEBUG] from resource zip => assets/Resources/ui/common/MapWindow.js
+[DEBUG] from resource zip => assets/Resources/ui/common/PhotoUploadWindow.js
+[DEBUG] from resource zip => assets/Resources/ui/common/SettingWindow.js
 [DEBUG] from resource zip => assets/Resources/ui/handheld/ApplicationWindow.js
 [DEBUG] from resource zip => assets/Resources/ui/tablet/ApplicationWindow.js
 [DEBUG] from resource zip => assets/Resources/KS_nav_ui.png
@@ -91,10 +102,13 @@ Logfile initialized
 [DEBUG] from JAR /Users/takezoux3/Library/Application Support/Titanium/mobilesdk/osx/2.1.4.GA/android/modules/titanium-ui.jar => ti/modules/titanium/ui/widget/webview/json2.js
 [DEBUG] from JAR /Users/takezoux3/Library/Application Support/Titanium/mobilesdk/osx/2.1.4.GA/android/modules/titanium-ui.jar => ti/modules/titanium/ui/widget/webview/polling.js
 [DEBUG] from JAR /Users/takezoux3/Library/Application Support/Titanium/mobilesdk/osx/2.1.4.GA/android/modules/titanium-ui.jar => ti/modules/titanium/ui/widget/webview/polling.min.js
+[DEBUG] from JAR /Users/takezoux3/Library/Application Support/Titanium/mobilesdk/osx/2.1.4.GA/android/thirdparty.jar => org/apache/Commons-NOTICE.txt
+[DEBUG] from JAR /Users/takezoux3/Library/Application Support/Titanium/mobilesdk/osx/2.1.4.GA/android/thirdparty.jar => org/apache/HttpComponents-NOTICE.txt
+[DEBUG] from JAR /Users/takezoux3/Library/Application Support/Titanium/mobilesdk/osx/2.1.4.GA/android/thirdparty.jar => org/apache/mime4j-NOTICE.txt
 [DEBUG] installing native SDK libs
 [DEBUG] Waiting for device to be ready ...
 [TRACE] adb devices returned 1 devices/emulators
 [DEBUG] Device connected... (waited 0 seconds)
-[DEBUG] waited 0.019265 seconds on emulator to get ready
+[DEBUG] waited 0.018538 seconds on emulator to get ready
 [INFO] Installing application on device
 [INFO] Application installed. Launch from drawer on Home Screen

@@ -15,8 +15,6 @@ function SettingWindow(client){
 		title : "Logout",
 		top:150,
 		left:100,
-		width:100,
-		height:30
 	});
 	logoutButton.addEventListener("click",function(){
 		client.logout();

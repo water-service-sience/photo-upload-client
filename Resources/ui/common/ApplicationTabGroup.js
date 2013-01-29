@@ -6,6 +6,7 @@ function ApplicationTabGroup(Window) {
 	var HomeWindow = require("ui/common/HomeWindow");
 	var CreateUserWindow = require("ui/common/CreateUserWindow");
 	var SettingWindow = require("ui/common/SettingWindow");
+	var MapWindow = require("ui/common/MapWindow");
 	
 	var api = require("ui/common/APIClient");
 	var client = api.client;
@@ -14,7 +15,7 @@ function ApplicationTabGroup(Window) {
 	var homeWindow = new HomeWindow(client);//new LoginWindow(client),//new Window(L('home')),
     var win2 = new CameraWindow(client);//new Window(L('settings'));
     var settingWindow = new SettingWindow(client);
-		
+	var mapWindow = new MapWindow(client);
 		
 
 	
@@ -41,15 +42,24 @@ function ApplicationTabGroup(Window) {
 		}
 	});
 	var tab3 = Ti.UI.createTab({
+		title : L("map"),
+		icon:'/images/KS_nav_views.png',
+		window:mapWindow
+	});
+	mapWindow.containingTab = tab3;
+	
+	
+	var tab4 = Ti.UI.createTab({
 		title : L("setting"),
 		icon:'/images/KS_nav_views.png',
 		window:settingWindow
 	});
-	settingWindow.containingTab = tab3;
+	settingWindow.containingTab = tab4;
 	
 	self.addTab(tab1);
 	self.addTab(tab2);
 	self.addTab(tab3);
+	self.addTab(tab4);
 	
 	
 	var showModalLoginWindow = function(){

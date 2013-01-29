@@ -5,4 +5,6 @@
 	<string name="openWindow">Open New Window</string>
 	<string name="newWindow">New Window</string>
 	<string name="camera">Camera</string>
+	<string name="setting">Setting</string>
+	<string name="map">Map</string>
 </resources>

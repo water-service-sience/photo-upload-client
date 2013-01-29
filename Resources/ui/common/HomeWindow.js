@@ -11,7 +11,7 @@ function HomeWindow(client){
 	var tableData = [{title:"a"},{title:"b"}];
 	
 	var tableView = Ti.UI.createTableView({
-		bottom:30,
+		bottom:"10%",
 		data : tableData
 	});
 	
@@ -20,8 +20,8 @@ function HomeWindow(client){
 	var updateButton = Ti.UI.createButton({
 		title : "Refresh",
 		bottom:2,
-		height:25,
-		width:100,
+		height:"10%",
+		width:"20%",
 		left:20
 	})
 	self.add(updateButton);
