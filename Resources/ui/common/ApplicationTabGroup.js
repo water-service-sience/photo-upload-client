@@ -65,8 +65,12 @@ function ApplicationTabGroup(Window) {
 	var showModalLoginWindow = function(){
 		var loginWindow = new CreateUserWindow(client);
 		loginWindow.onLogin = function(success){
-			loginWindow.close();
-			homeWindow.updateData();	
+			if(success){
+			    loginWindow.close();
+			    homeWindow.updateData();	
+			}else{
+				alert("Fail to create user");
+			}
 		};
 		
 	    loginWindow.open({

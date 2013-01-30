@@ -21,6 +21,7 @@ function MapWindow(client){
 	self.add(mapView);
 	
 	var veilPhoto = function(photoUrl){
+		Ti.API.debug("ImageURL=" + photoUrl);
 		var veil = Ti.UI.createView({
 			top:0,
 			left:0,
@@ -30,28 +31,52 @@ function MapWindow(client){
 			opacity:0.4
 		});
 		
+		var ind = Ti.UI.createActivityIndicator({
+				top : "40%",
+				left : "45%",
+				width : 100,
+				height:100
+			});;
+		var osname = Ti.Platform.osname;
+		if(osname == "iphone" || osname == "ipad"){
+		    ind.style = Ti.UI.iPhone.ActivityIndicatorStyle.PLAIN;
+		}
+
+		
+		var image = Ti.UI.createImageView({
+			image:photoUrl,
+			top : "5%",
+			left: "5%",
+			right: "5%",
+			height:"90%" 
+		});
+		self.add(veil);
+		self.add(ind);
+		self.add(image);
+		
 		veil.addEventListener("click",function(){
 			Ti.API.debug("Clicked ");
 			self.remove(veil);
+			self.remove(image);
+			self.remove(ind);
 		});
-		var imageWidth = self.size.width * 0.9;
-		var v = self.size.width * 0.05;
-		var image = Ti.UI.createImageView({
-			image:photoUrl,
-			top : v,
-			left:v,
-			width:imageWidth,
-			height:imageHeight 
+		image.addEventListener("click",function(){
+			Ti.API.debug("Clicked ");
+			self.remove(veil);
+			self.remove(image);
+			self.remove(ind);
+			
 		});
-		veil.add(image);
 		
-		
-		self.add(veil);
 		return veil;
 	}
 	
-	mapView.addEventListener("click",function(){
-		veilPhoto("http://key.visualarts.gr.jp/kudo/twitter_image/kudo_icon2.jpg");
+	mapView.addEventListener("click",function(e){
+		Ti.API.debug("Annotation clicked?" + e.annotation);
+		var pin = e.annotation;
+		if(pin != null){
+		    veilPhoto("http://de24.digitalasia.chubu.ac.jp/photo-gather/images/uploaded/" + pin.photo.resourceKey);
+		}
 	});
 	
 	
@@ -73,33 +98,40 @@ function MapWindow(client){
 	    		});
 	    		mapView.addAnnotation(pin);
 	    		
-	    		pin.addEventListener("click",function(e){
+	    		/*pin.addEventListener("click",function(e){
 	    			
 	    			var pin = e.annotation;
 	    			Ti.API.debug("Click photo " + pin.photo.id + ":" + pin.photo.resouceKey);
 	    			veilPhoto(pin.photo.resourceKey);
-	    		});
+	    		});*/
 	    	}
 	    });
 	}
-	
-	Titanium.Geolocation.getCurrentPosition(function(e){
-		if(!e.success){
-			alert("This device is not support GPS.");
-			return;
-		}
+	self.addEventListener("open",function(){
 		
-		Ti.API.debug("Current pos = " + e.coords.latitude + "," + e.coords.longitude + ")");
-		
-		var r = mapView.region;
-		var newR = {latitude:e.coords.latitude, longitude:e.coords.longitude, 
-			latitudeDelta:r.latitudeDelta,
-			longitudeDelta:r.longitudeDelta};
-		mapView.region = newR;
-		
-		updateMapPhotos();
-		
-	});
+		Titanium.Geolocation.getCurrentPosition(function(e) {
+			if (!e.success) {
+				alert("This device is not support GPS.");
+				return;
+			}
+
+			Ti.API.debug("Current pos = " + e.coords.latitude + "," + e.coords.longitude + ")");
+
+			var r = mapView.region;
+			var newR = {
+				latitude : e.coords.latitude,
+				longitude : e.coords.longitude,
+				latitudeDelta : r.latitudeDelta,
+				longitudeDelta : r.longitudeDelta
+			};
+			mapView.region = newR;
+
+			updateMapPhotos();
+
+		});
+
+		});
+
 	
 	
 	

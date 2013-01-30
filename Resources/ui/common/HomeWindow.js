@@ -31,7 +31,6 @@ function HomeWindow(client){
 	});
 	
 	
-	
 	self.updateData = function(){
 		
 		client.getSelfUploadPhotos(function(photos){

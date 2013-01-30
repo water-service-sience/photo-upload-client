@@ -58,7 +58,7 @@ function createAPIClient(){
 	var client = {
 		accessKey : "",
 		//url : "http://localhost:8080/",
-		url : "http://localhost:8080/",
+		url : "http://de24.digitalasia.chubu.ac.jp/photo-gather/",
 		onSuccessToLogin : function(){},
 		onFailToLogin : function(){},
 		isLogin : function() {
@@ -81,8 +81,7 @@ function createAPIClient(){
 					callback(true);
 				},
 				onerror : function(e) {
-					Ti.API.error("Fail to create user:" + e.error);
-					alert("Fail to login");
+					Ti.API.error("Fail to create user:" + e.source.status);
 					callback(false);
 				}
 			});

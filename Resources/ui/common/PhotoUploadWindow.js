@@ -30,13 +30,11 @@ function PhotoUploadWindow(client,imageData){
 		text :"Place",
 		left : 0,
 		width :"30%",
-		height:30,
 		top   :3
 	}));
 	var placeTextField = Ti.UI.createTextField({
 		width:"65%",
 		left :"30%",
-		height:30,
 		top   :3,
         borderStyle: Ti.UI.INPUT_BORDERSTYLE_ROUNDED
 	});
@@ -46,7 +44,6 @@ function PhotoUploadWindow(client,imageData){
 		text :"Comment",
 		width :"100%",
 		left : 0,
-		height:30,
 		top   :35
 	}));
 	var commentTextArea = Ti.UI.createTextArea({
@@ -61,21 +58,38 @@ function PhotoUploadWindow(client,imageData){
 	});
 	editField.add(commentTextArea);
 	
+	var lon = 0;
+	var lat = 0;
+	
+	Titanium.Geolocation.getCurrentPosition(function(e) {
+		if (!e.success) {
+			alert("This device is not support GPS.");
+			return;
+		}
+		lat = e.coords.latitude;
+		lon = e.coords.longitude;
+	})
+
 	
 	var uploadButton = Ti.UI.createButton({
 		title : "Upload",
 		bottom : 5,
 		width : "40%",
-		height:30,
 		left : "30%"
 	});
+	
+	
 	uploadButton.addEventListener("click",function(){
+		uploadButton.title = "Uploading ...";
+		uploadButton.enabled = false;
 		client.upload(imageData,function(photoId){
 			if(photoId != null){
 				alert("Success to upload photo");
 				client.editPhotoInfo(photoId,{
 					place : placeTextField.value,
-					comment : commentTextArea.value
+					comment : commentTextArea.value,
+					lon : lon,
+					lat : lat
 				},function(success){
 					if(!success){
 						alert("Fail to edit photo info.");

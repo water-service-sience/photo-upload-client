@@ -18,8 +18,7 @@ function CreateUserWindow(api){
         borderStyle: Ti.UI.INPUT_BORDERSTYLE_ROUNDED,
 		top:10,
 		left:90,
-		width:100,
-		height:25
+		width:100
 		
 	});
 	self.add(nickname);
